@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Release
+    runs-on: windows-latest
+    steps:
+      - name: Setup Zig
+        uses: mlugg/setup-zig@v2
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Build
+        run: ./create_nar.sh
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v6
+        with:
+          path: ghost_in_a_nutshell.nar
+          archive: false
