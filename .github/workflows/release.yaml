@@ -10,16 +10,16 @@ on:
 jobs:
   build:
     name: Release
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Setup Zig
-        uses: mlugg/setup-zig@v2
       - name: Checkout
         uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Build
-        run: ./create_nar.sh
+        run: nix develop -c ./create_nar.sh
       - name: Upload the artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           path: ghost_in_a_nutshell.nar
           archive: false
