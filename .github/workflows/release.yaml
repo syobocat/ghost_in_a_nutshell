@@ -12,14 +12,12 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Zig
-        uses: mlugg/setup-zig@v2
-        with:
-          version: 0.16.0
       - name: Checkout
         uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Build
-        run: ./create_nar.sh
+        run: nix develop -c ./create_nar.sh
       - name: Upload the artifact
         uses: actions/upload-artifact@v7
         with:
