@@ -4,7 +4,7 @@
 
 .{
     .name = .ghost_in_a_nutshell,
-    .version = "0.1.0",
+    .version = "0.1.1",
 
     .fingerprint = 0xede9fd497aee8ece,
     .minimum_zig_version = "0.16.0",
