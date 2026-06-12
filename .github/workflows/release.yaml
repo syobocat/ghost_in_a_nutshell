@@ -10,14 +10,13 @@ on:
 jobs:
   build:
     name: Release
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Setup Zig
         uses: mlugg/setup-zig@v2
       - name: Checkout
         uses: actions/checkout@v6
       - name: Build
-        shell: bash
         run: ./create_nar.sh
       - name: Upload the artifact
         uses: actions/upload-artifact@v7
