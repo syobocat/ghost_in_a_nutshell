@@ -16,7 +16,7 @@ pushd 'public' > /dev/null
 echo 'charset,UTF-8' > updates.txt
 for f in $(find . -type f)
 do
-    echo "file,${f#./}\x01$(md5sum ${f} | awk '{print $1}')\x01size=$(wc -c ${f} | awk '{print $1}')\x01" >> updates.txt
+    echo -e "file,${f#./}\x01$(md5sum ${f} | awk '{print $1}')\x01size=$(wc -c ${f} | awk '{print $1}')\x01" >> updates.txt
 done
 cp 'updates.txt' 'ghost/master/'
 
