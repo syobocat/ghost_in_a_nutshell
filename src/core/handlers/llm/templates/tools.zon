@@ -1,0 +1,134 @@
+// SPDX-FileCopyrightText: 2026 SyoBoN <syobon@syobon.net>
+//
+// SPDX-License-Identifier: UPL-1.0
+
+.{
+    .{
+        .type = "function",
+        .function = .{
+            .name = "update_persona",
+            .description = "ペルソナを更新します。",
+            .strict = true,
+            .parameters = .{
+                .type = "object",
+                .required = .{ "old_string", "new_string", "replace_all" },
+                .additionalProperties = false,
+                .properties = .{
+                    .old_string = .{
+                        .type = "string",
+                        .description = "置換対象のテキストを指定します。*とだけ書くと全文を置換し、$とだけ書くと末尾に追記します。",
+                    },
+                    .new_string = .{
+                        .type = "string",
+                        .description = "置換後の内容を指定します。",
+                    },
+                    .replace_all = .{
+                        .type = "boolean",
+                        .description = "複数箇所にマッチしたとき、trueなら全てのマッチを置換します。falseの場合は最初のマッチのみを置換します。",
+                    },
+                },
+            },
+        },
+    },
+    .{
+        .type = "function",
+        .function = .{
+            .name = "update_memory",
+            .description = "内部記憶(Memory)を更新します。",
+            .strict = true,
+            .parameters = .{
+                .type = "object",
+                .required = .{ "old_string", "new_string", "replace_all" },
+                .additionalProperties = false,
+                .properties = .{
+                    .old_string = .{
+                        .type = "string",
+                        .description = "置換対象のテキストを指定します。*とだけ書くと全文を置換し、$とだけ書くと末尾に追記します。",
+                    },
+                    .new_string = .{
+                        .type = "string",
+                        .description = "置換後の内容を指定します。",
+                    },
+                    .replace_all = .{
+                        .type = "boolean",
+                        .description = "複数箇所にマッチしたとき、trueなら全てのマッチを置換します。falseの場合は最初のマッチのみを置換します。",
+                    },
+                },
+            },
+        },
+    },
+    .{
+        .type = "function",
+        .function = .{
+            .name = "append_knowledge",
+            .description = "外部記憶(Knowledge)に情報を追加します。",
+            .strict = true,
+            .parameters = .{
+                .type = "object",
+                .required = .{"content"},
+                .additionalProperties = false,
+                .properties = .{
+                    .content = .{
+                        .type = "string",
+                        .description = "追加する情報を記入します。",
+                    },
+                    .search_keys = .{
+                        .type = "array",
+                        .items = .{ .type = "string" },
+                        .description = "検索時にヒットしやすくするための、追加のキーワードを指定します。",
+                    },
+                },
+            },
+        },
+    },
+    .{
+        .type = "function",
+        .function = .{
+            .name = "remove_knowledge",
+            .description = "外部記憶(Knowledge)から情報を削除します。",
+            .strict = true,
+            .parameters = .{
+                .type = "object",
+                .required = .{"id"},
+                .additionalProperties = false,
+                .properties = .{
+                    .id = .{
+                        .type = "integer",
+                        .description = "削除する情報のIDを入力します。IDはsearch_knowledgeツールを使用することで取得できます。",
+                    },
+                },
+            },
+        },
+    },
+    .{
+        .type = "function",
+        .function = .{
+            .name = "search_knowledge",
+            .description = "外部記憶(Knowledge)から情報を検索します。",
+            .strict = true,
+            .parameters = .{
+                .type = "object",
+                .required = .{ "query", "mode" },
+                .additionalProperties = false,
+                .properties = .{
+                    .query = .{
+                        .type = "array",
+                        .items = .{ .type = "string" },
+                        .description = "検索クエリを入力します。",
+                    },
+                    .mode = .{
+                        .@"enum" = .{ "AND", "OR" },
+                        .description = "ANDモードでは、クエリに指定した単語全てが含まれる情報が検索されます。ORモードでは、いずれかの単語が含まれる情報が検索されます。",
+                    },
+                },
+            },
+        },
+    },
+    .{
+        .type = "function",
+        .function = .{
+            .name = "get_word",
+            .description = "ランダムな単語を取得します。ランダムトークのテーマ選びなどに使用してください。時間帯や季節感、世界観にそぐわないと感じた場合、複数回呼び出すと違う結果が得られます。",
+        },
+    },
+}

@@ -1,0 +1,30 @@
+// SPDX-FileCopyrightText: NONE
+//
+// SPDX-License-Identifier: CC0-1.0
+
+.{
+    .name = .ghost_in_a_nutshell,
+    .version = "0.0.0",
+
+    .fingerprint = 0xede9fd497aee8ece,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .ukadll = .{
+            .url = "git+https://github.com/syobocat/ukadll_zig.git#89e7009d99a5e695d2e40313b533fedf2d837fc5",
+            .hash = "ukadll-0.2.0-nF05NJV8AADTqI-jz2WFOsWxDxtgXFQTn0x6f5-Tqa2u",
+        },
+        .shiori = .{
+            .url = "git+https://github.com/syobocat/shiori_zig.git#77c49dffcc61b0dbba9b1870f7ddb28c784b4685",
+            .hash = "shiori-0.3.0-Omg7piO-AACEOOAREoBCF82sgPTyLZaezJGVnaz7GTLk",
+        },
+    },
+    .paths = .{
+        "README.md",
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "public",
+        "LICENSES",
+        "REUSE.toml",
+    },
+}

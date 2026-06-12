@@ -1,0 +1,26 @@
+// SPDX-FileCopyrightText: 2026 SyoBoN <syobon@syobon.net>
+//
+// SPDX-License-Identifier: UPL-1.0
+
+.{
+    .type = "json_schema",
+    .json_schema = .{
+        .name = "response",
+        .strict = true,
+        .schema = .{
+            .type = "object",
+            .required = .{ "script", "summary" },
+            .additionalProperties = false,
+            .properties = .{
+                .script = .{
+                    .type = "string",
+                    .description = "ユーザーに対して表示するメッセージです。一部のSakura Scriptが使用可能です。",
+                },
+                .summary = .{
+                    .type = "string",
+                    .decsription = "ログに残す内容です。今回行ったことを、一行で簡潔に記述してください。",
+                },
+            },
+        },
+    },
+}

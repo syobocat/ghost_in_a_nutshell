@@ -1,0 +1,13 @@
+charset,UTF-8
+type,ghost
+id,ghost_in_a_nutshell
+name,Ghost in a Nutshell
+sakura.name,Ghost
+kero.name,
+craftman,SyoBoN
+craftmanw,SyoBoN
+craftmanurl,https://syobon.net/
+homeurl,https://uka.syobon.net/nutshell/
+shiori,shiori.dll
+shiori.version,3.0
+shiori.encoding,UTF-8

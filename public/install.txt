@@ -1,0 +1,4 @@
+charset,UTF-8
+type,ghost
+name,Ghost in a Nutshell
+directory,ghost_in_a_nutshell
